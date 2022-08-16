@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Lab4</string>
+    <string name="toast_message">Diego Andres Alonzo Medinilla</string>
+    <string name="thursday">JUEVES</string>
+    <string name="actualization">Actualizacion Disponible</string>
+    <string name="download">Descargar</string>
+    <string name="date">20 de Enero</string>
+    <string name="ButtonJornada">Terminar Jornada</string>
+    <string name="Restaurant">Le Cafe</string>
+    <string name="direction">4 avenida 9-40</string>
+    <string name="horario">7:00 am - 8:00 pm</string>
+    <string name="init">Iniciar</string>
+    <string name="details">Detalles</string>
+    <string name="invist">Iniciar vista</string>
+    <string name="infoad">Informacion adicional</string>
+    <string name="horat">Horario de Atencion</string>
+    <string name="tel">Telefono</string>
+    <string name="llamar">Llamar</string>
+    <string name="todo">TODO</string>
+</resources>
