@@ -47,8 +47,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+        //NO abre exactamente el lugar debido a que este lugar es un centro comercial.
         iconDirection.setOnClickListener {
-            val location = "http://maps.google.com/maps?q=loc:14.584925217634268, -90.5173461025434"
+            val location = "geo:0,0?q=4+Avenida+9-40+Cdad.+de+Guatemala"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(location))
             startActivity(intent)
         }
