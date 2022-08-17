@@ -13,7 +13,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.material.snackbar.Snackbar
-import org.w3c.dom.Text
 
 class DetailsActivity : AppCompatActivity() {
     lateinit var btnInitV : Button
@@ -27,18 +26,20 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
         btnInitV = findViewById(R.id.btn_detailsActivity_IniciarVista)
+        val restaurant: Restaurant = intent.getSerializableExtra("restaurant") as Restaurant
+
         val intent = getIntent().getStringExtra("nameRestaurante")
         txtVCall = findViewById<TextView?>(R.id.txtV_detailsActivity_cel).apply {
             text = getIntent().getStringExtra("celularRestaurante")
         }
         txtRestaurant = findViewById<TextView?>(R.id.txtV_detailsActivity_Restaurant).apply {
-            text = getIntent().getStringExtra("nameRestaurante")
+            text = restaurant.name.toString()
         }
         txtHorario = findViewById<TextView?>(R.id.txtV_detailsActivity_horario).apply {
-            text = getIntent().getStringExtra("horarioRestaurante")
+            text = restaurant.horario.toString()
         }
         txtDirection = findViewById<TextView?>(R.id.txtV_detailsActivity_direccion).apply {
-            text = getIntent().getStringExtra("directionRestaurante")
+            text = restaurant.direction.toString()
         }
         txtVLlamar = findViewById(R.id.txtV_detailsActivity_llamar)
         initListeners()

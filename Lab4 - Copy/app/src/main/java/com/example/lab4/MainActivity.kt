@@ -48,16 +48,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
         iconDirection.setOnClickListener {
-            val location = "http://maps.google.com/maps?q=loc:14.603835110728907,-90.48925677205315"
+            val location = "http://maps.google.com/maps?q=loc:14.584925217634268, -90.5173461025434"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(location))
             startActivity(intent)
         }
         buttonDetails.setOnClickListener {
-
+            var restaurant = Restaurant(name = txtVRestaurant.getText().toString(), direction = txtVDirection.getText().toString(), horario = txtVHorario.getText().toString())
             val intent = Intent(this, DetailsActivity::class.java).apply{
-                putExtra("nameRestaurante", txtVRestaurant.getText().toString())
-                putExtra("directionRestaurante", txtVDirection.getText().toString())
-                putExtra("horarioRestaurante", txtVHorario.getText().toString())
+                putExtra("restaurant", restaurant)
                 putExtra("celularRestaurante", "23663702")
             }
             intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
