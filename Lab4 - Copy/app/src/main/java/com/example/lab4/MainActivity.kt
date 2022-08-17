@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.Toast
 import android.net.Uri
 import android.widget.ImageButton
+import android.widget.TextView
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     lateinit var  buttonToasterFullName: Button
@@ -14,6 +16,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var iconDirection : ImageButton
     lateinit var buttonDownload : Button
     lateinit var buttonDetails : Button
+    lateinit var txtVRestaurant : TextView
+    lateinit var txtVDirection : TextView
+    lateinit var txtVHorario : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,7 +27,11 @@ class MainActivity : AppCompatActivity() {
         buttonDownload = findViewById<Button>(R.id.btnDownload_mainActivity_download)
         iconDirection = findViewById(R.id.Ibtn_mainActivity_cardV_Restaurant)
         buttonDetails = findViewById<Button>(R.id.button_mainActivity_details)
+        txtVRestaurant = findViewById(R.id.txtV_mainActivity_Restaurant)
+        txtVDirection = findViewById(R.id.txtV_mainActivity_CardV_direction)
+        txtVHorario = findViewById(R.id.txtV_mainActivity_cardV_Horario)
         initListeners()
+
     }
 
     private fun initListeners(){
@@ -44,7 +53,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         buttonDetails.setOnClickListener {
-            val intent = Intent(this, DetailsActivity::class.java)
+
+            val intent = Intent(this, DetailsActivity::class.java).apply{
+                putExtra("nameRestaurante", txtVRestaurant.getText().toString())
+                putExtra("directionRestaurante", txtVDirection.getText().toString())
+                putExtra("horarioRestaurante", txtVHorario.getText().toString())
+                putExtra("celularRestaurante", "23663702")
+            }
             intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent)
         }
