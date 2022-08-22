@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MainActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="YourLibrary">Your Library</string>
+    <string name="mostRecent">Most recent</string>
+    <string name="likedSongs">Liked Songs</string>
+    <string name="search">Search</string>
+    <string name="TopGenres">Your top genres</string>
+    <string name="Gm">Buenos dias,</string>
+    <string name="Name">Diego Alonzo</string>
+</resources>
