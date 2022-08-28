@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Lab07</string>
+    <string name="home_title">Home</string>
+    <string name="go_to_login">Go to Login</string>
+    <string name="create_user_title">Create User</string>
+    <string name="login">Log in</string>
+    <string name="login_title">Laboratory 07</string>
+    <string name="go_to_create">Go to create</string>
+    <string name="user_create">New user? Click right here to create a new user</string>
+    <string name="email">example@person.com</string>
+
+    <style name="toast_message">The entered email doesnt exist</style>
+
+    <string name="GM">Good Morning!</string>
+    <string name="profile_title">My profile</string>
+    <string name="reload">Reload</string>
+</resources>
