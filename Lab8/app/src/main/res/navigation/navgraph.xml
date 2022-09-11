@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/charactersFragment">
+<!--Extract string resource to make a new @string it the values/strings.xml-->
+    <fragment
+        android:id="@+id/charactersFragment"
+        android:name="com.example.mainactivity.CharactersFragment"
+        android:label="@string/character_title"
+        tools:layout="@layout/characters_fragment" >
+        <action
+            android:id="@+id/action_charactersFragment_to_characterDetailsFragment"
+            app:destination="@id/characterDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailsFragment"
+        android:name="com.example.mainactivity.CharacterDetailsFragment"
+        android:label="@string/CharacterDetails_Title"
+        tools:layout="@layout/characterdetails_fragment" />
+</navigation>
