@@ -20,7 +20,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         super.onViewCreated(view, savedInstanceState)
         text = view.findViewById(R.id.textInputEdit_FProfile_input)
         button = view.findViewById(R.id.btn_FProfile_rLogin)
-        var email = "@     "+args.email
+        var email = args.email
         text.setText(email)
         setListeners()
     }
