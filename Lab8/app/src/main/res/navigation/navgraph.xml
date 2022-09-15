@@ -5,6 +5,7 @@
     android:id="@+id/navgraph"
     app:startDestination="@id/charactersFragment">
 <!--Extract string resource to make a new @string it the values/strings.xml-->
+    <!--    This gets the title of a fragment in the tool bar-->
     <fragment
         android:id="@+id/charactersFragment"
         android:name="com.example.mainactivity.CharactersFragment"
