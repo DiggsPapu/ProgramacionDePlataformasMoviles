@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_iconsize">24dp</dimen>
+    <dimen name="recyclerview_size">56dp</dimen>
+    <dimen name="margin_medium_charcterfragmentiv">16dp</dimen>
+</resources>

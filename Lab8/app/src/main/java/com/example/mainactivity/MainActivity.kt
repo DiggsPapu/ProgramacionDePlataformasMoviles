@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         toolbar.setupWithNavController(navController, appbarconfig)
         listenToNavGraphChanges()
     }
+
     private fun listenToNavGraphChanges(){
         navController.addOnDestinationChangedListener(NavController.OnDestinationChangedListener{_, destination,_->
             when(destination.id){
@@ -29,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                     toolbar.visibility = View.VISIBLE
                 }
                 else -> {
-                    true
+                    toolbar.menu.clear()
                 }
             }
         }
