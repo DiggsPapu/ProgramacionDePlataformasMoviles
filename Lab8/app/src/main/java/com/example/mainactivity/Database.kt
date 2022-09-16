@@ -1,13 +1,4 @@
 package com.example.mainactivity
-
-data class Character(
-    val name: String,
-    val species: String,
-    val status: String,
-    val gender: String,
-    val image: String
-)
-
 object RickAndMortyDB {
 
     private val characters = mutableListOf(
@@ -82,7 +73,7 @@ object RickAndMortyDB {
             image = "https://rickandmortyapi.com/api/character/avatar/10.jpeg",
         ),
     )
-    
+
     fun getCharacters() = characters
 
 }
