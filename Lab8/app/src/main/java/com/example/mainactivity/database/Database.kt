@@ -1,4 +1,15 @@
-package com.example.mainactivity
+package com.example.mainactivity.database
+import java.io.Serializable
+
+data class Character(
+    val name: String,
+    val species: String,
+    val status: String,
+    val gender: String,
+    val image: String
+):Serializable
+
+
 object RickAndMortyDB {
 
     private val characters = mutableListOf(
@@ -75,5 +86,4 @@ object RickAndMortyDB {
     )
 
     fun getCharacters() = characters
-
 }

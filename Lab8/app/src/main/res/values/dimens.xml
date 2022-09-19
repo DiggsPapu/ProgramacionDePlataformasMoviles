@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="default_iconsize">24dp</dimen>
+    <dimen name="default_iconsize">40dp</dimen>
     <dimen name="recyclerview_size">56dp</dimen>
     <dimen name="margin_medium_charcterfragmentiv">16dp</dimen>
+    <dimen name="imageView_characterDetailSize">100dp</dimen>
+    <dimen name="marginImageViewCharacterdETAil">5dp</dimen>
+    <dimen name="TextSize">59sp</dimen>
+    <dimen name="Margin">50dp</dimen>
+    <dimen name="MarginStart">30dp</dimen>
 </resources>

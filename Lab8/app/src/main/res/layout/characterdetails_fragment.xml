@@ -3,7 +3,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".CharacterDetailsFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.MainActivity"
     >
+    <ImageView
+        android:id="@+id/imageView_characterDetail_fragment"
+        android:layout_width="@dimen/imageView_characterDetailSize"
+        android:layout_height="@dimen/imageView_characterDetailSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_marginVertical="@dimen/marginImageViewCharacterdETAil"
+        />
 
+    <TextView
+        android:id="@+id/nameCharacter_characterDetail_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Morty Smith"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_characterDetail_fragment"
+        app:layout_constraintStart_toStartOf="@+id/imageView_characterDetail_fragment"
+        app:layout_constraintEnd_toEndOf="@id/imageView_characterDetail_fragment"
+        android:layout_marginVertical="10dp"
+        android:textSize="@dimen/TextSize"
+        />
+
+    <TextView
+        android:id="@+id/textSpecies_characterDetail_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameCharacter_characterDetail_fragment"
+        android:text="species"
+        android:textColor="@color/black"
+        android:layout_marginVertical="@dimen/Margin"
+        android:layout_marginStart="@dimen/MarginStart"/>
+
+    <TextView
+        android:id="@+id/textRace_characterDetail_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameCharacter_characterDetail_fragment"
+        tools:text="Human"
+        android:textColor="@color/black"
+        android:layout_marginVertical="@dimen/Margin"
+        android:layout_marginEnd="@dimen/MarginStart"
+        />
+
+    <TextView
+        android:id="@+id/textStatus_characterDetail_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSpecies_characterDetail_fragment"
+        android:text="@string/status"
+        android:textColor="@color/black"
+        android:layout_marginVertical="@dimen/Margin"
+        android:layout_marginStart="@dimen/MarginStart"/>
+
+    <TextView
+        android:id="@+id/textAliveDeath_characterDetail_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textRace_characterDetail_fragment"
+        tools:text="Alive"
+        android:textColor="@color/black"
+        android:layout_marginVertical="@dimen/Margin"
+        android:layout_marginEnd="@dimen/MarginStart"
+        />
+
+    <TextView
+        android:id="@+id/textGender_characterDetail_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textStatus_characterDetail_fragment"
+        android:text="Gender"
+        android:textColor="@color/black"
+        android:layout_marginVertical="@dimen/Margin"
+        android:layout_marginStart="@dimen/MarginStart"/>
+
+    <TextView
+        android:id="@+id/textMaleFemale_characterDetail_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAliveDeath_characterDetail_fragment"
+        tools:text="Male"
+        android:textColor="@color/black"
+        android:layout_marginVertical="@dimen/Margin"
+        android:layout_marginEnd="@dimen/MarginStart"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
