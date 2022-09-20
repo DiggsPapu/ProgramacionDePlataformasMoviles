@@ -6,7 +6,7 @@
     <dimen name="iv_fragmentDetail_size">300dp</dimen>
     <dimen name="iv_VerticlaMargin">50dp</dimen>
     <dimen name="tv_VMargin">20dp</dimen>
-    <dimen name="margin1">20dp</dimen>
+    <dimen name="margin1">10dp</dimen>
     <dimen name="margin2">20dp</dimen>
     <dimen name="margin3">20dp</dimen>
 </resources>

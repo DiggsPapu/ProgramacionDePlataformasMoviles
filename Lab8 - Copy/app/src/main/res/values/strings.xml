@@ -11,4 +11,5 @@
     <string name="status">Status</string>
     <string name="gender">Gender</string>
     <string name="CharactersTitle">Character</string>
+    <string name="origin">origin</string>
 </resources>

@@ -23,6 +23,8 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
     private lateinit var species: TextView
     private lateinit var status: TextView
     private lateinit var gender: TextView
+    private lateinit var origin: TextView
+    private lateinit var apperances: TextView
     private lateinit var result:AllAssetsForOneCharacterResponse
     private val args: CharacterDetailsFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,6 +34,8 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
         species = view.findViewById(R.id.speciestxtv_detailsFragment)
         status = view.findViewById(R.id.statustxtv_detailsFragment)
         gender = view.findViewById(R.id.gendertxtv_detailsFragment)
+        origin = view.findViewById(R.id.origintxtv_detailsFragment)
+        apperances = view.findViewById(R.id.episodeapptxtv_detailsFragment)
         apiRequest()
     }
     private fun setAll(){
@@ -46,6 +50,8 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
         species.text = "Specie: "+result.species
         status.text = "Status: "+ result.status
         gender.text = "Gender: "+result.gender
+        origin.text = "Origin: "+result.origin.name
+        apperances.text = "Episode Apperances: "+result.episode.size.toString()
     }
     private fun apiRequest(){
         RetrofitInstance.api.getCharacter(args.characterID).enqueue(object : retrofit2.Callback<AllAssetsForOneCharacterResponse> {
