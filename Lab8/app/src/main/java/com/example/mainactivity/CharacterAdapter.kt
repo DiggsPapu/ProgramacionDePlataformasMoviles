@@ -14,8 +14,8 @@ import org.w3c.dom.Text
 
 class CharacterAdapter(
     private val characters:MutableList<Character>,
-    private val placeListener: PlaceListener):
-    RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
+    private val listener: PlaceListener
+    ):RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
     interface PlaceListener{
         fun onPlaceClicked(data:Character, position: Int)
     }
@@ -50,7 +50,7 @@ class CharacterAdapter(
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.itemrecycler_charactersfragment, parent, false)
-        return ViewHolder(view, placeListener)
+        return ViewHolder(view, listener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

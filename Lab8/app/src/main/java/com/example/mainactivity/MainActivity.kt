@@ -28,11 +28,14 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.charactersFragment -> {
                     toolbar.visibility = View.VISIBLE
+                    true
                 }
-                else -> {
+                R.id.fragment_CharacterDetail->{
                     toolbar.menu.getItem(R.id.sortAz).isVisible = false
                     toolbar.menu.getItem(R.id.sortZa).isVisible = false
+                    true
                 }
+                else->false
             }
         }
     }

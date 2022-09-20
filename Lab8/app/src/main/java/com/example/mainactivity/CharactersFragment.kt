@@ -1,5 +1,6 @@
 package com.example.mainactivity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -17,8 +18,10 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CharacterAdapt
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.RecyclerView_CharactersFragment)
-
+        buttonAZ = view.findViewById(R.id.btn_sortAz)
+        buttonZA = view.findViewById(R.id.btn_sortZA)
         setUpRecycler()
+        setListeners()
     }
     private fun setUpRecycler(){
         list = RickAndMortyDB.getCharacters()
@@ -26,12 +29,22 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CharacterAdapt
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = CharacterAdapter(list, this)
     }
+    @SuppressLint("NotifyDataSetChanged")
+    private fun setListeners() {
+        buttonAZ.setOnClickListener {
+            list.sortBy { character -> character.name }
+            recyclerView.adapter!!.notifyDataSetChanged()
+        }
+        buttonZA.setOnClickListener {
+            list.sortByDescending { character -> character.name }
+            recyclerView.adapter!!.notifyDataSetChanged()
+        }
+    }
 
     override fun onPlaceClicked(data: Character, position: Int) {
-        requireView().findNavController().navigate(
-            CharactersFragmentDirections.actionCharactersFragmentToCharacterDetailsFragment(
-                data
-            )
-        )
+        val action = CharactersFragmentDirections.actionCharactersFragment2ToCharacterDetailsFragment(data)
+        requireView().findNavController().navigate(action)
     }
+
+
 }

@@ -3,23 +3,23 @@
              xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/charactersFragment">
+    app:startDestination="@id/charactersFragment2">
     <fragment
-        android:id="@+id/charactersFragment"
+        android:id="@+id/charactersFragment2"
         android:name="com.example.mainactivity.CharactersFragment"
-        android:label="@string/character_title"
+        android:label="@string/CharactersTitle"
         tools:layout="@layout/characters_fragment" >
         <action
-            android:id="@+id/action_charactersFragment_to_characterDetailsFragment"
-            app:destination="@id/fragment_CharacterDetail" />
+            android:id="@+id/action_charactersFragment2_to_characterDetailsFragment"
+            app:destination="@id/characterDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/fragment_CharacterDetail"
+        android:id="@+id/characterDetailsFragment"
         android:name="com.example.mainactivity.CharacterDetailsFragment"
         android:label="@string/CharacterDetails_Title"
-        tools:layout="@layout/characterdetails_fragment">
+        tools:layout="@layout/characterdetails_fragment" >
         <argument
-            android:name="CharacterToPass"
+            android:name="character"
             app:argType="com.example.mainactivity.Character" />
     </fragment>
 </navigation>
