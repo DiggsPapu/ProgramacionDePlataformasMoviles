@@ -1,5 +1,5 @@
 package com.example.mainactivity.adapters
-
+import com.example.mainactivity.data.datasource.model.variouscharacters.Result
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,11 +14,11 @@ import com.example.mainactivity.classes.Character
 import com.example.mainactivity.R
 
 class CharacterAdapter(
-    private val characters:MutableList<Character>,
+    private val characters:MutableList<Result>,
     private val listener: PlaceListener
     ):RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
     interface PlaceListener{
-        fun onPlaceClicked(data: Character, position: Int)
+        fun onPlaceClicked(data: Result, position: Int)
     }
     class ViewHolder(private val view: View,
                      private val listener: PlaceListener
@@ -28,7 +28,7 @@ class CharacterAdapter(
         private val name = view.findViewById<TextView>(R.id.name_char_charactersFragment)
         private val characteristics = view.findViewById<TextView>(R.id.characteristics_char_charactersFragment)
         private val layout: ConstraintLayout = view.findViewById(R.id.layoutitemrecycler_charactersfragment)
-        fun bind(character: Character){
+        fun bind(character: Result){
             image.load(character.image){
                 transformations(CircleCropTransformation())
                 diskCachePolicy(CachePolicy.ENABLED)
@@ -40,7 +40,7 @@ class CharacterAdapter(
             characteristics.text = character.status
             setListeners(character)
         }
-        private fun setListeners(character: Character){
+        private fun setListeners(character: Result){
             layout.setOnClickListener {
                 listener.onPlaceClicked(character, this.adapterPosition)
             }

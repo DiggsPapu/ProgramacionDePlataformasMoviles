@@ -10,6 +10,12 @@ import coil.load
 import coil.request.CachePolicy
 import coil.transform.CircleCropTransformation
 import com.example.mainactivity.R
+import com.example.mainactivity.data.datasource.api.RetrofitInstance
+import com.example.mainactivity.data.datasource.model.onecharacter.AllAssetsForOneCharacterResponse
+import com.example.mainactivity.data.datasource.model.variouscharacters.AllAssetsForAllResponse
+import com.example.mainactivity.data.datasource.model.variouscharacters.Result
+import retrofit2.Call
+import retrofit2.Response
 
 class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
     private lateinit var imageView: ImageView
@@ -17,7 +23,8 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
     private lateinit var species: TextView
     private lateinit var status: TextView
     private lateinit var gender: TextView
-    private val args: com.example.mainactivity.fragments.CharacterDetailsFragmentArgs by navArgs()
+    private lateinit var result:AllAssetsForOneCharacterResponse
+    private val args: CharacterDetailsFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         imageView = view.findViewById(R.id.iv_fragmentDetail)
@@ -28,16 +35,33 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
         setAll()
     }
     private fun setAll(){
-        imageView.load(args.character.image){
+        imageView.load(result.image){
             transformations(CircleCropTransformation())
             diskCachePolicy(CachePolicy.ENABLED)
             memoryCachePolicy(CachePolicy.ENABLED)
             error(R.drawable.ic_baseline_error_24)
             placeholder(R.drawable.ic_baseline_replay_24)
         }
-        name.text = args.character.name
-        species.text = "Specie: "+args.character.species
-        status.text = "Status: "+ args.character.status
-        gender.text = "Gender: "+args.character.gender
+        name.text = result.name
+        species.text = "Specie: "+result.species
+        status.text = "Status: "+ result.status
+        gender.text = "Gender: "+result.gender
+    }
+    private fun apiRequest(){
+        RetrofitInstance.api.getCharacter(args.characterID).enqueue(object : retrofit2.Callback<AllAssetsForOneCharacterResponse> {
+            override fun onResponse(
+                call: Call<AllAssetsForOneCharacterResponse>,
+                response: Response<AllAssetsForOneCharacterResponse>
+            ) {
+                if (response.isSuccessful && response.body() != null){
+                    result = response.body()!!
+                    setAll()
+                }
+            }
+            override fun onFailure(call: Call<AllAssetsForOneCharacterResponse>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 }
