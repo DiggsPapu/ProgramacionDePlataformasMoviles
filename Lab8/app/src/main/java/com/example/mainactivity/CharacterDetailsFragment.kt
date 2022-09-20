@@ -35,8 +35,8 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
             placeholder(R.drawable.ic_baseline_replay_24)
         }
         name.text = args.character.name
-        species.text = args.character.species
-        status.text = args.character.status
-        gender.text = args.character.gender
+        species.text = "Specie: "+args.character.species
+        status.text = "Status: "+ args.character.status
+        gender.text = "Gender: "+args.character.gender
     }
 }
