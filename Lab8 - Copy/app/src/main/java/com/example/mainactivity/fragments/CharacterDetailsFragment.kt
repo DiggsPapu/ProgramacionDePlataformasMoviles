@@ -32,7 +32,7 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
         species = view.findViewById(R.id.speciestxtv_detailsFragment)
         status = view.findViewById(R.id.statustxtv_detailsFragment)
         gender = view.findViewById(R.id.gendertxtv_detailsFragment)
-        setAll()
+        apiRequest()
     }
     private fun setAll(){
         imageView.load(result.image){
