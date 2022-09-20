@@ -1,4 +1,4 @@
-package com.example.mainactivity
+package com.example.mainactivity.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,23 +10,25 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.request.CachePolicy
 import coil.transform.CircleCropTransformation
-import org.w3c.dom.Text
+import com.example.mainactivity.classes.Character
+import com.example.mainactivity.R
 
 class CharacterAdapter(
     private val characters:MutableList<Character>,
     private val listener: PlaceListener
     ):RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
     interface PlaceListener{
-        fun onPlaceClicked(data:Character, position: Int)
+        fun onPlaceClicked(data: Character, position: Int)
     }
     class ViewHolder(private val view: View,
-                     private val listener: PlaceListener):
+                     private val listener: PlaceListener
+    ):
         RecyclerView.ViewHolder(view){
         private val image = view.findViewById<ImageView>(R.id.ivchar_charactersFragment)
         private val name = view.findViewById<TextView>(R.id.name_char_charactersFragment)
         private val characteristics = view.findViewById<TextView>(R.id.characteristics_char_charactersFragment)
         private val layout: ConstraintLayout = view.findViewById(R.id.layoutitemrecycler_charactersfragment)
-        fun bind(character:Character){
+        fun bind(character: Character){
             image.load(character.image){
                 transformations(CircleCropTransformation())
                 diskCachePolicy(CachePolicy.ENABLED)

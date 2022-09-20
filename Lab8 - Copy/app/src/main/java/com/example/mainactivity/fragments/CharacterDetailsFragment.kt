@@ -1,4 +1,4 @@
-package com.example.mainactivity
+package com.example.mainactivity.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -9,6 +9,7 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.request.CachePolicy
 import coil.transform.CircleCropTransformation
+import com.example.mainactivity.R
 
 class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
     private lateinit var imageView: ImageView
@@ -16,7 +17,7 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
     private lateinit var species: TextView
     private lateinit var status: TextView
     private lateinit var gender: TextView
-    private val args:CharacterDetailsFragmentArgs by navArgs()
+    private val args: com.example.mainactivity.fragments.CharacterDetailsFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         imageView = view.findViewById(R.id.iv_fragmentDetail)

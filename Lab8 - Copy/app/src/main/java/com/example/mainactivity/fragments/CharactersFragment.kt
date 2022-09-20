@@ -1,4 +1,4 @@
-package com.example.mainactivity
+package com.example.mainactivity.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,6 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mainactivity.R
+import com.example.mainactivity.RickAndMortyDB
+import com.example.mainactivity.adapters.CharacterAdapter
+import com.example.mainactivity.classes.Character
 
 class CharactersFragment: Fragment(R.layout.characters_fragment), CharacterAdapter.PlaceListener {
 
@@ -42,7 +46,8 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CharacterAdapt
     }
 
     override fun onPlaceClicked(data: Character, position: Int) {
-        val action = CharactersFragmentDirections.actionCharactersFragment2ToCharacterDetailsFragment(data)
+        val action =
+            CharactersFragmentDirections.actionCharactersFragment2ToCharacterDetailsFragment(data)
         requireView().findNavController().navigate(action)
     }
 

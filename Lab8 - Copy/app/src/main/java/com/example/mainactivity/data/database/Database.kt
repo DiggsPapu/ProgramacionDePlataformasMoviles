@@ -1,4 +1,7 @@
 package com.example.mainactivity
+
+import com.example.mainactivity.classes.Character
+
 object RickAndMortyDB {
 
     private val characters = mutableListOf(
