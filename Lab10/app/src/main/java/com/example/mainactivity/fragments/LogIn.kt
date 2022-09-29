@@ -1,60 +1,64 @@
 package com.example.mainactivity.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.findNavController
 import com.example.mainactivity.R
+import com.example.mainactivity.data.datasource.util.dataStoree
+import com.example.mainactivity.data.datasource.util.getValue
+import com.example.mainactivity.data.datasource.util.mail
+import com.example.mainactivity.data.datasource.util.saveValue
+import kotlinx.coroutines.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class LogIn : Fragment(R.layout.fragment_log_in) {
+    private lateinit var email: EditText
+    private lateinit var password: EditText
+    private lateinit var logIn: Button
+    private lateinit var label: TextView
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LogIn.newInstance] factory method to
- * create an instance of this fragment.
- */
-class LogIn : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        email = view.findViewById(R.id.correo_inputlayout_login)
+        password = view.findViewById(R.id.password_inputlayout_login)
+        logIn = view.findViewById(R.id.btn_LogIn_LoginF)
+        label = view.findViewById(R.id.mail_password_txt_loginF)
+        isLogged()
+        setListeners()
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private fun setListeners() {
+        logIn.setOnClickListener {
+            if (email.text.toString().equals(password.text.toString()) and email.text.toString().equals(label.text.toString())){
+                CoroutineScope(Dispatchers.IO).launch {
+                    requireContext().dataStoree.saveValue(mail, email.text.toString())
+
+                }
+                CoroutineScope(Dispatchers.Main).launch {
+                    requireView().findNavController().navigate(LogInDirections.actionLogInToCharactersFragment2())
+                }
+            }
+            else{
+                Toast.makeText(requireContext(), "The values are not correct", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_log_in, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LogIn.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LogIn().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun isLogged(){
+        CoroutineScope(Dispatchers.IO).launch {
+            if (requireContext().dataStoree.getValue(mail) != null) {
+                CoroutineScope(Dispatchers.Main).launch {
+                    requireView().findNavController().navigate(LogInDirections.actionLogInToCharactersFragment2())
                 }
             }
+        }
     }
 }
+
