@@ -10,6 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--    Must use material toolbar-->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_MainAct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:menu="@menu/topappbarmenu"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            >
+
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <ImageView
             android:id="@+id/rnm_iv_login"

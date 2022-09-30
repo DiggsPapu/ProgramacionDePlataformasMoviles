@@ -10,19 +10,28 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.example.mainactivity.R
 import com.example.mainactivity.data.datasource.util.dataStoree
 import com.example.mainactivity.data.datasource.util.getValue
 import com.example.mainactivity.data.datasource.util.mail
 import com.example.mainactivity.data.datasource.util.saveValue
+import com.google.android.material.appbar.MaterialToolbar
 import kotlinx.coroutines.*
+
 
 class LogIn : Fragment(R.layout.fragment_log_in) {
     private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var logIn: Button
     private lateinit var label: TextView
+    private lateinit var toolbar: MaterialToolbar
+    private lateinit var navController: NavController
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,6 +39,10 @@ class LogIn : Fragment(R.layout.fragment_log_in) {
         password = view.findViewById(R.id.password_inputlayout_login)
         logIn = view.findViewById(R.id.btn_LogIn_LoginF)
         label = view.findViewById(R.id.mail_password_txt_loginF)
+        navController = findNavController()
+        val appbarconfig = AppBarConfiguration(navController.graph)
+        toolbar = view.findViewById(R.id.toolbar_MainAct)
+        toolbar.setupWithNavController(navController, appbarconfig)
         isLogged()
         setListeners()
     }
