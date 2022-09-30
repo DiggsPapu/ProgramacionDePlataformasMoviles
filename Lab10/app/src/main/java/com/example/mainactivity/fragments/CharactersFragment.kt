@@ -38,6 +38,7 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CharacterAdapt
         buttonZA = view.findViewById(R.id.btn_sortZA)
         toolbar = view.findViewById(R.id.toolbar_Characters1Fragment)
         apiRequest()
+        setToolbar()
         setListeners()
     }
     private fun apiRequest(){
@@ -90,10 +91,8 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CharacterAdapt
         toolbar.setOnMenuItemClickListener { menuItem ->
             when(menuItem.itemId) {
                 R.id.btn_sortAz->{
-                    CoroutineScope(Dispatchers.IO).launch {
-                        apiResult.sortBy { character -> character.name }
-                        recyclerView.adapter!!.notifyDataSetChanged()
-                    }
+                    apiResult.sortBy { character -> character.name }
+                    recyclerView.adapter!!.notifyDataSetChanged()
                     true
                 }
                 R.id.logout -> {

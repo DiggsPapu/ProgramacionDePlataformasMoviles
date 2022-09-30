@@ -15,7 +15,9 @@
             app:destination="@id/characterDetailsFragment" />
         <action
             android:id="@+id/action_charactersFragment2_to_logIn"
-            app:destination="@id/logIn" />
+            app:destination="@id/logIn"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/characterDetailsFragment"
@@ -26,6 +28,8 @@
             android:name="characterID"
             app:argType="string" />
         <action
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
             android:id="@+id/action_characterDetailsFragment_to_logIn"
             app:destination="@id/logIn" />
     </fragment>

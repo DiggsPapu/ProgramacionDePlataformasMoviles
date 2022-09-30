@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/topappbarmenu"
+        app:menu="@menu/topappbarmenucharactersfragment"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
         >
 

@@ -63,7 +63,6 @@ class LogIn : Fragment(R.layout.fragment_log_in) {
             }
         }
     }
-
     private fun isLogged(){
         CoroutineScope(Dispatchers.IO).launch {
             if (requireContext().dataStoree.getValue(mail) != null) {
