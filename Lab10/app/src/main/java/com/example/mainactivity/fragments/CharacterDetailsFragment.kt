@@ -4,8 +4,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import coil.load
 import coil.request.CachePolicy
 import coil.transform.CircleCropTransformation
@@ -14,10 +19,19 @@ import com.example.mainactivity.data.datasource.api.RetrofitInstance
 import com.example.mainactivity.data.datasource.model.onecharacter.AllAssetsForOneCharacterResponse
 import com.example.mainactivity.data.datasource.model.variouscharacters.AllAssetsForAllResponse
 import com.example.mainactivity.data.datasource.model.variouscharacters.Result
+import com.example.mainactivity.data.datasource.util.dataStoree
+import com.example.mainactivity.data.datasource.util.mail
+import com.example.mainactivity.data.datasource.util.removeValue
+import com.example.mainactivity.data.datasource.util.saveValue
+import com.google.android.material.appbar.MaterialToolbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
 
 class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
+    private lateinit var  toolbar: MaterialToolbar
     private lateinit var imageView: ImageView
     private lateinit var name: TextView
     private lateinit var species: TextView
@@ -29,6 +43,7 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
     private val args: CharacterDetailsFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        toolbar = view.findViewById(R.id.toolbar_CharactersFragment)
         imageView = view.findViewById(R.id.iv_fragmentDetail)
         name = view.findViewById(R.id.nametxtv_detailsFragment)
         species = view.findViewById(R.id.speciestxtv_detailsFragment)
@@ -36,7 +51,9 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
         gender = view.findViewById(R.id.gendertxtv_detailsFragment)
         origin = view.findViewById(R.id.origintxtv_detailsFragment)
         apperances = view.findViewById(R.id.episodeapptxtv_detailsFragment)
+        setToolbar()
         apiRequest()
+
     }
     private fun setAll(){
         imageView.load(result.image){
@@ -68,6 +85,31 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
                 TODO("Not yet implemented")
             }
 
-        })
+        }
+        )
+    }
+    private fun setToolbar() {
+        val navController = findNavController()
+        val appbarConfig = AppBarConfiguration(navController.graph)
+        toolbar.setupWithNavController(navController, appbarConfig)
+        initListeners()
+    }
+    private fun initListeners() {
+        toolbar.setOnMenuItemClickListener { menuItem ->
+            when(menuItem.itemId) {
+                R.id.logout -> {
+                    CoroutineScope(Dispatchers.IO).launch {
+                        requireContext().dataStoree.removeValue(mail)
+                    }
+                    CoroutineScope(Dispatchers.Main).launch {
+                        requireView().findNavController().navigate(CharacterDetailsFragmentDirections.actionCharacterDetailsFragmentToLogIn())
+                    }
+                    true
+                }
+
+                else -> true
+            }
+        }
     }
 }
+

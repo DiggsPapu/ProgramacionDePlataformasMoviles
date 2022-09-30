@@ -28,12 +28,13 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.charactersFragment -> {
-                    toolbar.visibility = View.VISIBLE
+                    toolbar.visibility = View.INVISIBLE
                     true
                 }
                 R.id.fragment_CharacterDetail ->{
-                    toolbar.menu.getItem(R.id.sortAz).isVisible = false
-                    toolbar.menu.getItem(R.id.sortZa).isVisible = false
+//                    toolbar.menu.getItem(R.id.sortAz).isVisible = false
+//                    toolbar.menu.getItem(R.id.sortZa).isVisible = false
+                    toolbar.visibility = View.INVISIBLE
                     true
                 }
                 else->false

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/sortAz"
+        android:title="@string/sort_from_a_z"
+        >
+
+    </item>
+    <item
+        android:id="@+id/sortZa"
+        android:title="@string/sort_from_z_a"
+        >
+
+    </item>
+    <item
+        android:id="@+id/logout"
+        android:title="@string/logout"
+        >
+
+    </item>
+
+
+</menu>

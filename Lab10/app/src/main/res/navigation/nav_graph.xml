@@ -25,11 +25,14 @@
         <argument
             android:name="characterID"
             app:argType="string" />
+        <action
+            android:id="@+id/action_characterDetailsFragment_to_logIn"
+            app:destination="@id/logIn" />
     </fragment>
     <fragment
         android:id="@+id/logIn"
         android:name="com.example.mainactivity.fragments.LogIn"
-        android:label="fragment_log_in"
+        android:label="@string/LogIn"
         tools:layout="@layout/fragment_log_in" >
         <action
             android:id="@+id/action_logIn_to_charactersFragment2"

@@ -6,17 +6,27 @@ import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mainactivity.R
 import com.example.mainactivity.adapters.CharacterAdapter
 import com.example.mainactivity.data.datasource.api.RetrofitInstance
 import com.example.mainactivity.data.datasource.model.variouscharacters.AllAssetsForAllResponse
+import com.example.mainactivity.data.datasource.util.dataStoree
+import com.example.mainactivity.data.datasource.util.mail
+import com.example.mainactivity.data.datasource.util.removeValue
+import com.google.android.material.appbar.MaterialToolbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
 
 class CharactersFragment: Fragment(R.layout.characters_fragment), CharacterAdapter.PlaceListener {
-
+    private lateinit var toolbar: MaterialToolbar
     private lateinit var recyclerView: RecyclerView
     private lateinit var buttonAZ: Button
     private lateinit var buttonZA: Button
@@ -26,6 +36,7 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CharacterAdapt
         recyclerView = view.findViewById(R.id.RecyclerView_CharactersFragment)
         buttonAZ = view.findViewById(R.id.btn_sortAz)
         buttonZA = view.findViewById(R.id.btn_sortZA)
+        toolbar = view.findViewById(R.id.toolbar_Characters1Fragment)
         apiRequest()
         setListeners()
     }
@@ -66,6 +77,42 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CharacterAdapt
         buttonZA.setOnClickListener {
             apiResult.sortByDescending { character -> character.name }
             recyclerView.adapter!!.notifyDataSetChanged()
+        }
+        setToolbar()
+    }
+    private fun setToolbar() {
+        val navController = findNavController()
+        val appbarConfig = AppBarConfiguration(navController.graph)
+        toolbar.setupWithNavController(navController, appbarConfig)
+        initListeners()
+    }
+    private fun initListeners() {
+        toolbar.setOnMenuItemClickListener { menuItem ->
+            when(menuItem.itemId) {
+                R.id.btn_sortAz->{
+                    CoroutineScope(Dispatchers.IO).launch {
+                        apiResult.sortBy { character -> character.name }
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }
+                    true
+                }
+                R.id.logout -> {
+                    CoroutineScope(Dispatchers.IO).launch {
+                        requireContext().dataStoree.removeValue(mail)
+                    }
+                    CoroutineScope(Dispatchers.Main).launch {
+                        requireView().findNavController().navigate(CharactersFragmentDirections.actionCharactersFragment2ToLogIn())
+                    }
+                    true
+                }
+                R.id.btn_sortZA->{
+                    apiResult.sortByDescending { character -> character.name }
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                    true
+                }
+
+                else -> true
+            }
         }
     }
 }
