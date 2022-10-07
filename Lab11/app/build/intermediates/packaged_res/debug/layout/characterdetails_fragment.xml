@@ -29,38 +29,39 @@
         tools:srcCompat="@tools:sample/avatars"
         >
     </ImageView>
-    <TextView
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nametxtv_detailsFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:text="@string/name_char"
-        android:textSize="50sp"
+        android:textSize="18sp"
+        android:hint="name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginVertical="@dimen/tv_VMargin"
-        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/iv_fragmentDetail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         >
-    </TextView>
-    <TextView
+    </com.google.android.material.textfield.TextInputEditText>
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/speciestxtv_detailsFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/species"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="@string/species"
         android:textSize="20sp"
         android:layout_marginEnd="@dimen/margin1"
-        android:layout_marginStart="@dimen/margin2"
+        android:layout_marginStart="@dimen/margin1"
         android:layout_marginVertical="@dimen/margin3"
         app:layout_constraintTop_toBottomOf="@+id/nametxtv_detailsFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
-    </TextView>
-    <TextView
+    </com.google.android.material.textfield.TextInputEditText>
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/statustxtv_detailsFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/status"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="@string/status"
         android:textSize="20sp"
         android:layout_marginEnd="@dimen/margin1"
         android:layout_marginVertical="@dimen/margin1"
@@ -71,12 +72,12 @@
         app:layout_constraintStart_toStartOf="parent"
         >
 
-    </TextView>
-    <TextView
+    </com.google.android.material.textfield.TextInputEditText>
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/gendertxtv_detailsFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gender"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="@string/gender"
         android:textSize="20sp"
         android:layout_marginEnd="@dimen/margin1"
         android:layout_marginVertical="@dimen/margin1"
@@ -86,12 +87,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         >
-    </TextView>
-    <TextView
+    </com.google.android.material.textfield.TextInputEditText>
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/origintxtv_detailsFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/origin"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="@string/origin"
         android:textSize="20sp"
         android:layout_marginEnd="@dimen/margin1"
         android:layout_marginVertical="@dimen/margin1"
@@ -102,12 +103,12 @@
         app:layout_constraintStart_toStartOf="parent"
         >
 
-    </TextView>
-    <TextView
+    </com.google.android.material.textfield.TextInputEditText>
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/episodeapptxtv_detailsFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Episode appereances"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="Episode appereances"
         android:textSize="20sp"
         android:layout_marginEnd="@dimen/margin1"
         android:layout_marginStart="@dimen/margin1"
@@ -117,6 +118,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         >
 
-    </TextView>
+    </com.google.android.material.textfield.TextInputEditText>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

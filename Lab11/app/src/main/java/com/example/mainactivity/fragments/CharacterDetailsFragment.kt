@@ -11,11 +11,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import androidx.room.Room
 import coil.load
 import coil.request.CachePolicy
 import coil.transform.CircleCropTransformation
 import com.example.mainactivity.R
 import com.example.mainactivity.data.datasource.api.RetrofitInstance
+import com.example.mainactivity.data.datasource.local_source.CaracterDB
 import com.example.mainactivity.data.datasource.model.onecharacter.AllAssetsForOneCharacterResponse
 import com.example.mainactivity.data.datasource.model.variouscharacters.AllAssetsForAllResponse
 import com.example.mainactivity.data.datasource.model.variouscharacters.Result
@@ -40,6 +42,7 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
     private lateinit var origin: TextView
     private lateinit var apperances: TextView
     private lateinit var result:AllAssetsForOneCharacterResponse
+    private lateinit var database:CaracterDB
     private val args: CharacterDetailsFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,6 +54,11 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
         gender = view.findViewById(R.id.gendertxtv_detailsFragment)
         origin = view.findViewById(R.id.origintxtv_detailsFragment)
         apperances = view.findViewById(R.id.episodeapptxtv_detailsFragment)
+        database = Room.databaseBuilder(
+            requireContext(),
+            CaracterDB::class.java,
+            "dbname"
+        ).build()
         setToolbar()
         apiRequest()
 
