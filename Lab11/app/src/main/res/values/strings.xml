@@ -19,4 +19,5 @@
     <string name="email">email</string>
     <string name="TitleFragmentLogIn">Log In</string>
     <string name="logout">Log out</string>
+    <string name="save">save</string>
 </resources>

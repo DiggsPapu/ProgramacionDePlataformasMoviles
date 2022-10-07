@@ -16,6 +16,7 @@ import coil.load
 import coil.request.CachePolicy
 import coil.transform.CircleCropTransformation
 import com.example.mainactivity.R
+import com.example.mainactivity.classes.Caracter
 import com.example.mainactivity.data.datasource.api.RetrofitInstance
 import com.example.mainactivity.data.datasource.local_source.CaracterDB
 import com.example.mainactivity.data.datasource.model.onecharacter.AllAssetsForOneCharacterResponse
@@ -43,6 +44,7 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
     private lateinit var apperances: TextView
     private lateinit var result:AllAssetsForOneCharacterResponse
     private lateinit var database:CaracterDB
+    private lateinit var caracter: Caracter
     private val args: CharacterDetailsFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,6 +65,24 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
         apiRequest()
 
     }
+    private fun setAllDB(){
+        CoroutineScope(Dispatchers.IO).launch {
+            caracter = database.caracterDao().getCaracter(args.characterID as Int)
+        }
+        imageView.load(caracter.image){
+            transformations(CircleCropTransformation())
+            diskCachePolicy(CachePolicy.ENABLED)
+            memoryCachePolicy(CachePolicy.ENABLED)
+            error(R.drawable.ic_baseline_error_24)
+            placeholder(R.drawable.ic_baseline_replay_24)
+        }
+        name.text = caracter.name
+        species.text = caracter.species
+        status.text = caracter.status
+        gender.text = caracter.gender
+        origin.text = caracter.name
+        apperances.text = caracter.episodes.toString()
+    }
     private fun setAll(){
         imageView.load(result.image){
             transformations(CircleCropTransformation())
@@ -72,11 +92,11 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
             placeholder(R.drawable.ic_baseline_replay_24)
         }
         name.text = result.name
-        species.text = "Specie: "+result.species
-        status.text = "Status: "+ result.status
-        gender.text = "Gender: "+result.gender
-        origin.text = "Origin: "+result.origin.name
-        apperances.text = "Episode Apperances: "+result.episode.size.toString()
+        species.text = result.species
+        status.text = result.status
+        gender.text = result.gender
+        origin.text = result.origin.name
+        apperances.text = result.episode.size.toString()
     }
     private fun apiRequest(){
         RetrofitInstance.api.getCharacter(args.characterID).enqueue(object : retrofit2.Callback<AllAssetsForOneCharacterResponse> {

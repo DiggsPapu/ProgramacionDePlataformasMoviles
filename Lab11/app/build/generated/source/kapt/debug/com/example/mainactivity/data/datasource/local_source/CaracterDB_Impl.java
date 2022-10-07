@@ -37,9 +37,9 @@ public final class CaracterDB_Impl extends CaracterDB {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Caracter` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `species` TEXT NOT NULL, `status` TEXT NOT NULL, `gender` TEXT NOT NULL, `image` TEXT NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Caracter` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `species` TEXT NOT NULL, `status` TEXT NOT NULL, `gender` TEXT NOT NULL, `image` TEXT NOT NULL, `episodes` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2fd429f2e9b91652b66074824ea1a3aa')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '308829be70e546d82354c327af0859e1')");
       }
 
       @Override
@@ -83,13 +83,14 @@ public final class CaracterDB_Impl extends CaracterDB {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsCaracter = new HashMap<String, TableInfo.Column>(6);
+        final HashMap<String, TableInfo.Column> _columnsCaracter = new HashMap<String, TableInfo.Column>(7);
         _columnsCaracter.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCaracter.put("name", new TableInfo.Column("name", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCaracter.put("species", new TableInfo.Column("species", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCaracter.put("status", new TableInfo.Column("status", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCaracter.put("gender", new TableInfo.Column("gender", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCaracter.put("image", new TableInfo.Column("image", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCaracter.put("episodes", new TableInfo.Column("episodes", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysCaracter = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesCaracter = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoCaracter = new TableInfo("Caracter", _columnsCaracter, _foreignKeysCaracter, _indicesCaracter);
@@ -101,7 +102,7 @@ public final class CaracterDB_Impl extends CaracterDB {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "2fd429f2e9b91652b66074824ea1a3aa", "60ad3d5429e9ea3651198959ac1c8289");
+    }, "308829be70e546d82354c327af0859e1", "8d7dfffa86f4f648f9313531b93bcc6a");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

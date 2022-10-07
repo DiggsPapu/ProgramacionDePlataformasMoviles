@@ -14,4 +14,6 @@ interface CaracterDao {
     suspend fun deleteAll()
     @Query("Select * from caracter")
     suspend fun getCaracters():List<Caracter>
+    @Query("Select * from caracter where caracter.id= :caracterId")
+    suspend fun getCaracter(caracterId:Int):Caracter
 }

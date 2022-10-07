@@ -2964,6 +2964,7 @@ id rnm_iv_login
 id rounded
 id row_index_key
 id rtl
+id save_btn_detailsFragment
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3439,6 +3440,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string save
 string search_menu_title
 string sort_from_a_z
 string sort_from_z_a

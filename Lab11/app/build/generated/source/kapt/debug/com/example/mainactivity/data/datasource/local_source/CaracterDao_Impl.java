@@ -42,7 +42,7 @@ public final class CaracterDao_Impl implements CaracterDao {
     this.__insertionAdapterOfCaracter = new EntityInsertionAdapter<Caracter>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `Caracter` (`id`,`name`,`species`,`status`,`gender`,`image`) VALUES (nullif(?, 0),?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `Caracter` (`id`,`name`,`species`,`status`,`gender`,`image`,`episodes`) VALUES (nullif(?, 0),?,?,?,?,?,?)";
       }
 
       @Override
@@ -73,6 +73,7 @@ public final class CaracterDao_Impl implements CaracterDao {
         } else {
           stmt.bindString(6, value.getImage());
         }
+        stmt.bindLong(7, value.getEpisodes());
       }
     };
     this.__deletionAdapterOfCaracter = new EntityDeletionOrUpdateAdapter<Caracter>(__db) {
@@ -89,7 +90,7 @@ public final class CaracterDao_Impl implements CaracterDao {
     this.__updateAdapterOfCaracter = new EntityDeletionOrUpdateAdapter<Caracter>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `Caracter` SET `id` = ?,`name` = ?,`species` = ?,`status` = ?,`gender` = ?,`image` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `Caracter` SET `id` = ?,`name` = ?,`species` = ?,`status` = ?,`gender` = ?,`image` = ?,`episodes` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -120,7 +121,8 @@ public final class CaracterDao_Impl implements CaracterDao {
         } else {
           stmt.bindString(6, value.getImage());
         }
-        stmt.bindLong(7, value.getId());
+        stmt.bindLong(7, value.getEpisodes());
+        stmt.bindLong(8, value.getId());
       }
     };
     this.__preparedStmtOfDeleteAll = new SharedSQLiteStatement(__db) {
@@ -221,6 +223,7 @@ public final class CaracterDao_Impl implements CaracterDao {
           final int _cursorIndexOfStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "status");
           final int _cursorIndexOfGender = CursorUtil.getColumnIndexOrThrow(_cursor, "gender");
           final int _cursorIndexOfImage = CursorUtil.getColumnIndexOrThrow(_cursor, "image");
+          final int _cursorIndexOfEpisodes = CursorUtil.getColumnIndexOrThrow(_cursor, "episodes");
           final List<Caracter> _result = new ArrayList<Caracter>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final Caracter _item;
@@ -256,8 +259,79 @@ public final class CaracterDao_Impl implements CaracterDao {
             } else {
               _tmpImage = _cursor.getString(_cursorIndexOfImage);
             }
-            _item = new Caracter(_tmpId,_tmpName,_tmpSpecies,_tmpStatus,_tmpGender,_tmpImage);
+            final int _tmpEpisodes;
+            _tmpEpisodes = _cursor.getInt(_cursorIndexOfEpisodes);
+            _item = new Caracter(_tmpId,_tmpName,_tmpSpecies,_tmpStatus,_tmpGender,_tmpImage,_tmpEpisodes);
             _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, continuation);
+  }
+
+  @Override
+  public Object getCaracter(final int caracterId,
+      final Continuation<? super Caracter> continuation) {
+    final String _sql = "Select * from caracter where caracter.id= ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, caracterId);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<Caracter>() {
+      @Override
+      public Caracter call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfSpecies = CursorUtil.getColumnIndexOrThrow(_cursor, "species");
+          final int _cursorIndexOfStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "status");
+          final int _cursorIndexOfGender = CursorUtil.getColumnIndexOrThrow(_cursor, "gender");
+          final int _cursorIndexOfImage = CursorUtil.getColumnIndexOrThrow(_cursor, "image");
+          final int _cursorIndexOfEpisodes = CursorUtil.getColumnIndexOrThrow(_cursor, "episodes");
+          final Caracter _result;
+          if(_cursor.moveToFirst()) {
+            final int _tmpId;
+            _tmpId = _cursor.getInt(_cursorIndexOfId);
+            final String _tmpName;
+            if (_cursor.isNull(_cursorIndexOfName)) {
+              _tmpName = null;
+            } else {
+              _tmpName = _cursor.getString(_cursorIndexOfName);
+            }
+            final String _tmpSpecies;
+            if (_cursor.isNull(_cursorIndexOfSpecies)) {
+              _tmpSpecies = null;
+            } else {
+              _tmpSpecies = _cursor.getString(_cursorIndexOfSpecies);
+            }
+            final String _tmpStatus;
+            if (_cursor.isNull(_cursorIndexOfStatus)) {
+              _tmpStatus = null;
+            } else {
+              _tmpStatus = _cursor.getString(_cursorIndexOfStatus);
+            }
+            final String _tmpGender;
+            if (_cursor.isNull(_cursorIndexOfGender)) {
+              _tmpGender = null;
+            } else {
+              _tmpGender = _cursor.getString(_cursorIndexOfGender);
+            }
+            final String _tmpImage;
+            if (_cursor.isNull(_cursorIndexOfImage)) {
+              _tmpImage = null;
+            } else {
+              _tmpImage = _cursor.getString(_cursorIndexOfImage);
+            }
+            final int _tmpEpisodes;
+            _tmpEpisodes = _cursor.getInt(_cursorIndexOfEpisodes);
+            _result = new Caracter(_tmpId,_tmpName,_tmpSpecies,_tmpStatus,_tmpGender,_tmpImage,_tmpEpisodes);
+          } else {
+            _result = null;
           }
           return _result;
         } finally {

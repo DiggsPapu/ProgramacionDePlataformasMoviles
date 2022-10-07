@@ -10,7 +10,8 @@ data class Caracter(
     val species: String,
     val status: String,
     val gender: String,
-    val image: String = ""
+    val image: String = "",
+    val episodes: Int
 
 )
 

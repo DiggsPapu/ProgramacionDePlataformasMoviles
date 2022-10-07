@@ -84,7 +84,8 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
                             status = character.status,
                             species = character.species,
                             image = character.image,
-                            gender = character.gender
+                            gender = character.gender,
+                            episodes = character.episode.size
                         )
                         CoroutineScope(Dispatchers.IO).launch {
                             database.caracterDao().insertCharacter(caracter)

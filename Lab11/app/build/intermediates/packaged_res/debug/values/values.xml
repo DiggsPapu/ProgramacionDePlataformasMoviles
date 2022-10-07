@@ -8,8 +8,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <dimen name="default_iconsize">24dp</dimen>
-    <dimen name="iv_VerticlaMargin">50dp</dimen>
-    <dimen name="iv_fragmentDetail_size">300dp</dimen>
+    <dimen name="iv_VerticlaMargin">70dp</dimen>
+    <dimen name="iv_fragmentDetail_size">200dp</dimen>
     <dimen name="margin1">10dp</dimen>
     <dimen name="margin2">20dp</dimen>
     <dimen name="margin3">20dp</dimen>
@@ -32,6 +32,7 @@
     <string name="options">Options</string>
     <string name="origin">origin</string>
     <string name="password">password</string>
+    <string name="save">save</string>
     <string name="sort_from_a_z">Sort from A-Z</string>
     <string name="sort_from_z_a">Sort from Z-A</string>
     <string name="species">Species</string>
