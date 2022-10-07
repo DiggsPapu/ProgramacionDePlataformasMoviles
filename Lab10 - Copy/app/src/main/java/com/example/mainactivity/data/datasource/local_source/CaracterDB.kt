@@ -2,10 +2,10 @@ package com.example.mainactivity.data.datasource.local_source
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.mainactivity.data.datasource.model.variouscharacters.Result
+import com.example.mainactivity.classes.Caracter
 
 @Database(
-    entities = [Result::class],
+    entities = [Caracter::class],
     version = 1
 )
 abstract class CaracterDB: RoomDatabase() {
