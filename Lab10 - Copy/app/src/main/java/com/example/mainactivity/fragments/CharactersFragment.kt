@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -27,6 +28,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapter.ListenerPlace {
@@ -48,27 +50,28 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
             CaracterDB::class.java,
             "dbname"
         ).build()
-        getCharacters()
-        setToolbar()
+
+        initListeners()
         setListeners()
+        getCharacters()
+        setUpRecycler()
     }
     private fun getCharacters(){
+        CoroutineScope(Dispatchers.IO).launch {
+            characters.addAll(database.caracterDao().getCaracters())
+        }
         CoroutineScope(Dispatchers.Main).launch {
             if (database.caracterDao().getCaracters().size==0){
                 apiRequest()
-
-                setUpRecycler()
-
             }
             else{
-                characters.addAll(database.caracterDao().getCaracters())
-
-                setUpRecycler()
+                recyclerView.adapter!!.notifyDataSetChanged()
             }
         }
     }
     private fun apiRequest(){
-        RetrofitInstance.api.getCharacters().enqueue(object : retrofit2.Callback<AllAssetsForAllResponse> {
+        RetrofitInstance.api.getCharacters().enqueue(object : Callback<AllAssetsForAllResponse> {
+            @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(
                 call: Call<AllAssetsForAllResponse>,
                 response: Response<AllAssetsForAllResponse>
@@ -88,6 +91,10 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
                         }
                         characters.add(caracter)
                     }
+                    CoroutineScope(Dispatchers.Main).launch{
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }
+
 //                    apiResult = response.body()!!.results as MutableList<Result>
 
                 }
@@ -119,7 +126,6 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
             characters.sortByDescending { character -> character.name }
             recyclerView.adapter!!.notifyDataSetChanged()
         }
-        setToolbar()
     }
     private fun setToolbar() {
         val navController = findNavController()
@@ -127,6 +133,7 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
         toolbar.setupWithNavController(navController, appbarConfig)
         initListeners()
     }
+    @SuppressLint("NotifyDataSetChanged")
     private fun initListeners() {
         toolbar.setOnMenuItemClickListener { menuItem ->
             when(menuItem.itemId) {
@@ -138,10 +145,19 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
                 R.id.logout -> {
                     CoroutineScope(Dispatchers.IO).launch {
                         requireContext().dataStoree.removeValue(mail)
+                        database.caracterDao().deleteAll()
                     }
                     CoroutineScope(Dispatchers.Main).launch {
                         requireView().findNavController().navigate(CharactersFragmentDirections.actionCharactersFragment2ToLogIn())
                     }
+                    true
+                }
+                R.id.sync_iv_charactersF->{
+                    characters.clear()
+                    CoroutineScope(Dispatchers.IO).launch{
+                        database.caracterDao().deleteAll()
+                    }
+                    apiRequest()
                     true
                 }
                 R.id.btn_sortZA->{

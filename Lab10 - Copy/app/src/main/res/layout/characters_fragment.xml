@@ -16,7 +16,6 @@
         app:menu="@menu/topappbarmenu"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
         >
-
     </com.google.android.material.appbar.MaterialToolbar>
     <TextView
         android:layout_width="wrap_content"
