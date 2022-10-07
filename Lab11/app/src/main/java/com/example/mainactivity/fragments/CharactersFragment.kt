@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.mainactivity.R
 import com.example.mainactivity.adapters.CaracterAdapter
+import com.example.mainactivity.adapters.CharacterAdapter
 import com.example.mainactivity.classes.Caracter
 import com.example.mainactivity.data.datasource.api.RetrofitInstance
+import com.example.mainactivity.data.datasource.local_source.CaracterDB
 import com.example.mainactivity.data.datasource.model.variouscharacters.AllAssetsForAllResponse
 import com.example.mainactivity.data.datasource.util.dataStoree
 import com.example.mainactivity.data.datasource.util.mail
@@ -27,69 +29,48 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
-import com.example.mainactivity.data.datasource.local_source.CaracterDB
-class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapter.PlaceListener {
+
+class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapter.ListenerPlace {
     private lateinit var toolbar: MaterialToolbar
     private lateinit var recyclerView: RecyclerView
     private lateinit var buttonAZ: Button
     private lateinit var buttonZA: Button
     private lateinit var apiResult : MutableList<Result>
-    private lateinit var syncButton:ImageButton
+    private lateinit var sync: ImageButton
+    private var characters: MutableList<Caracter> = mutableListOf()
     private lateinit var database: CaracterDB
-    private var caracterList:MutableList<Caracter> = mutableListOf()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sync = view.findViewById(R.id.sync_iv_characterF)
         recyclerView = view.findViewById(R.id.RecyclerView_CharactersFragment)
         buttonAZ = view.findViewById(R.id.btn_sortAz)
         buttonZA = view.findViewById(R.id.btn_sortZA)
         toolbar = view.findViewById(R.id.toolbar_Characters1Fragment)
-        syncButton = view.findViewById(R.id.synchronize_iv_characterF)
         database = Room.databaseBuilder(
             requireContext(),
             CaracterDB::class.java,
             "dbname"
         ).build()
-        apiRequest()
         getCharacters()
-        setUpRecycler()
         setToolbar()
         setListeners()
     }
     private fun getCharacters(){
-        CoroutineScope(Dispatchers.IO).launch {
-            if (database.caracterDao().getCaracters().isNullOrEmpty()){
-                RetrofitInstance.api.getCharacters().enqueue(object : retrofit2.Callback<AllAssetsForAllResponse> {
-                    override fun onResponse(
-                        call: Call<AllAssetsForAllResponse>,
-                        response: Response<AllAssetsForAllResponse>
-                    ) {
-                        if (response.isSuccessful && response.body() != null){
-                            apiResult = response.body()!!.results as MutableList<Result>
-                        }
-                    }
+        CoroutineScope(Dispatchers.Main).launch {
+            if (database.caracterDao().getCaracters().size==0){
+                apiRequest()
+                setUpRecycler()
 
-                    override fun onFailure(call: Call<AllAssetsForAllResponse>, t: Throwable) {
-                        println("Error")
-                    }
-
-                })
-                for (car in apiResult){
-                    val caracter = Caracter(
-                        id = car.id,
-                        name = car.name,
-                        species = car.species,
-                        status = car.status,
-                        gender = car.gender,
-                        image = car.image
-                    )
-                    database.caracterDao().insertCharacter(caracter)
-                }
+            }
+            else if (characters.size==0){
+                apiRequest()
             }
             else{
-                caracterList = database.caracterDao().getCaracters() as MutableList<Caracter>
+                characters.addAll(database.caracterDao().getCaracters())
+
+                setUpRecycler()
             }
         }
-
     }
     private fun apiRequest(){
         RetrofitInstance.api.getCharacters().enqueue(object : retrofit2.Callback<AllAssetsForAllResponse> {
@@ -98,7 +79,25 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
                 response: Response<AllAssetsForAllResponse>
             ) {
                 if (response.isSuccessful && response.body() != null){
-                    apiResult = response.body()!!.results as MutableList<Result>
+                    for (character in response.body()!!.results){
+                        val caracter = Caracter(
+                            name = character.name,
+                            id = character.id,
+                            status = character.status,
+                            species = character.species,
+                            image = character.image,
+                            gender = character.gender
+                        )
+                        CoroutineScope(Dispatchers.IO).launch {
+                            database.caracterDao().insertCharacter(caracter)
+                        }
+                        characters.add(caracter)
+                        CoroutineScope(Dispatchers.Main).launch {
+                            recyclerView.adapter!!.notifyDataSetChanged()
+                        }
+                    }
+//                    apiResult = response.body()!!.results as MutableList<Result>
+
                 }
             }
 
@@ -109,23 +108,23 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
         })
         }
 
-    override fun onPlaceClicked(data: Caracter, position: Int) {
-        val action = CharactersFragmentDirections.actionCharactersFragment2ToCharacterDetailsFragment(data.id.toString())
-        requireView().findNavController().navigate(action)
-    }
+//    override fun onPlaceClicked(data: Result, position: Int) {
+//        val action = CharactersFragmentDirections.actionCharactersFragment2ToCharacterDetailsFragment(data.id.toString())
+//        requireView().findNavController().navigate(action)
+//    }
     private fun setUpRecycler(){
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = CaracterAdapter(caracterList, this)
+        recyclerView.adapter = CaracterAdapter(characters, this)
     }
     @SuppressLint("NotifyDataSetChanged")
     private fun setListeners() {
         buttonAZ.setOnClickListener {
-            apiResult.sortBy { character -> character.name }
+            characters.sortBy { character -> character.name }
             recyclerView.adapter!!.notifyDataSetChanged()
         }
         buttonZA.setOnClickListener {
-            apiResult.sortByDescending { character -> character.name }
+            characters.sortByDescending { character -> character.name }
             recyclerView.adapter!!.notifyDataSetChanged()
         }
         setToolbar()
@@ -140,7 +139,7 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
         toolbar.setOnMenuItemClickListener { menuItem ->
             when(menuItem.itemId) {
                 R.id.btn_sortAz->{
-                    apiResult.sortBy { character -> character.name }
+                    characters.sortBy { character -> character.name }
                     recyclerView.adapter!!.notifyDataSetChanged()
                     true
                 }
@@ -154,13 +153,32 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
                     true
                 }
                 R.id.btn_sortZA->{
-                    apiResult.sortByDescending { character -> character.name }
+                    characters.sortByDescending { character -> character.name }
                     recyclerView.adapter!!.notifyDataSetChanged()
                     true
                 }
-
+                R.id.sync_iv_characterF->{
+                    CoroutineScope(Dispatchers.Main).launch {
+                        database.caracterDao().deleteAll()
+                        characters.clear()
+                        getCharacters()
+                    }
+                    true
+                }
                 else -> true
             }
         }
+        sync.setOnClickListener{
+            CoroutineScope(Dispatchers.Main).launch {
+                database.caracterDao().deleteAll()
+                characters.clear()
+                apiRequest()
+            }
+        }
+    }
+
+    override fun clickedOnPlace(result: Caracter, position: Int) {
+        val action = CharactersFragmentDirections.actionCharactersFragment2ToCharacterDetailsFragment(result.id.toString())
+        requireView().findNavController().navigate(action)
     }
 }
