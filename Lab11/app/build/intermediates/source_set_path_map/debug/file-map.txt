@@ -45,11 +45,11 @@ com.example.mainactivity.app-savedstate-ktx-1.2.0-43 C:\Users\salon\.gradle\cach
 com.example.mainactivity.app-sqlite-2.2.0-44 C:\Users\salon\.gradle\caches\transforms-3\f88f16fd1f4f0037524c77f263b8f896\transformed\sqlite-2.2.0\res
 com.example.mainactivity.app-startup-runtime-1.1.1-45 C:\Users\salon\.gradle\caches\transforms-3\fdd22a31992fde82abe521294b2ecf23\transformed\startup-runtime-1.1.1\res
 com.example.mainactivity.app-window-1.0.0-46 C:\Users\salon\.gradle\caches\transforms-3\ff33644471406f82610d5643ea65ea72\transformed\window-1.0.0\res
-com.example.mainactivity.app-pngs-47 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab11\app\build\generated\res\pngs\debug
-com.example.mainactivity.app-resValues-48 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab11\app\build\generated\res\resValues\debug
-com.example.mainactivity.app-rs-49 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab11\app\build\generated\res\rs\debug
-com.example.mainactivity.app-packageDebugResources-50 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab11\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.mainactivity.app-packageDebugResources-51 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab11\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.mainactivity.app-merged_res-52 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab11\app\build\intermediates\merged_res\debug
-com.example.mainactivity.app-debug-53 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab11\app\src\debug\res
-com.example.mainactivity.app-main-54 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab11\app\src\main\res
+com.example.mainactivity.app-pngs-47 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab10 - Copy\app\build\generated\res\pngs\debug
+com.example.mainactivity.app-resValues-48 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab10 - Copy\app\build\generated\res\resValues\debug
+com.example.mainactivity.app-rs-49 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab10 - Copy\app\build\generated\res\rs\debug
+com.example.mainactivity.app-packageDebugResources-50 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab10 - Copy\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.mainactivity.app-packageDebugResources-51 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab10 - Copy\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.mainactivity.app-merged_res-52 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab10 - Copy\app\build\intermediates\merged_res\debug
+com.example.mainactivity.app-debug-53 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab10 - Copy\app\src\debug\res
+com.example.mainactivity.app-main-54 C:\Users\salon\OneDrive\Documentos\Diego\PPM\Lab\Lab10 - Copy\app\src\main\res

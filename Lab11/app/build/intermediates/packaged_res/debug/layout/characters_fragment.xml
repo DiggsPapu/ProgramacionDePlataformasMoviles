@@ -16,23 +16,6 @@
         app:menu="@menu/topappbarmenu"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
         >
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageButton
-                android:id="@+id/synchronize_iv_characterF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_sync_24"
-                android:background="@color/purple_700"
-                android:clickable="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                >
-            </ImageButton>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
     </com.google.android.material.appbar.MaterialToolbar>
     <TextView
         android:layout_width="wrap_content"

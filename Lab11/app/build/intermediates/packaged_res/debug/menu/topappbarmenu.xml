@@ -22,5 +22,13 @@
         >
 
     </item>
+    <item
+        android:id="@+id/sync_iv_charactersF"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_sync_24"
+        android:title="sync"
+        >
+
+    </item>
 
 </menu>

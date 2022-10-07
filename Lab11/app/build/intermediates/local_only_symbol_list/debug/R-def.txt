@@ -59,7 +59,7 @@ id sortAz
 id sortZa
 id speciestxtv_detailsFragment
 id statustxtv_detailsFragment
-id synchronize_iv_characterF
+id sync_iv_charactersF
 id toolbar_Characters1Fragment
 id toolbar_CharactersFragment
 id toolbar_MainAct
