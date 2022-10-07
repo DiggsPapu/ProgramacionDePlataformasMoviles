@@ -1,11 +1,8 @@
 package com.example.mainactivity.data.datasource.local_source
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.mainactivity.classes.Caracter
-
+@Dao
 interface CaracterDao {
     @Delete
     suspend fun deleteCharacter(caracter: Caracter)
@@ -15,5 +12,6 @@ interface CaracterDao {
     suspend fun updateCharacter(caracter: Caracter)
     @Query("Delete from Caracter")
     suspend fun deleteAll()
-
+    @Query("Select * from caracter")
+    suspend fun getCaracters():List<Caracter>
 }

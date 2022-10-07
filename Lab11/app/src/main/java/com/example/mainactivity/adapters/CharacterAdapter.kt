@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.request.CachePolicy
 import coil.transform.CircleCropTransformation
-import com.example.mainactivity.classes.Character
 import com.example.mainactivity.R
 
 class CharacterAdapter(
