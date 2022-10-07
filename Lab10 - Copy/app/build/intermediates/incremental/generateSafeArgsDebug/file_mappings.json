@@ -1,0 +1,1 @@
+[{"navFile":"src\\main\\res\\navigation\\nav_graph.xml","javaFiles":["com.example.mainactivity.fragments.CharactersFragmentDirections","com.example.mainactivity.fragments.CharacterDetailsFragmentDirections","com.example.mainactivity.fragments.CharacterDetailsFragmentArgs","com.example.mainactivity.fragments.LogInDirections"]}]
