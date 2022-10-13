@@ -1,0 +1,159 @@
+// No tocar esta clase ---
+data class ItemData(
+    var originalPos: Int,
+    var originalValue: Any,
+	var type: String,
+    var info: String
+)
+// -----------------------
+
+fun main() {
+    val result = processList(listOf(1, "Hola"))
+    println(result)
+    forFun(listOf(1,"hola", null, null, 1.5, "fhdsakj122u8492rnfj", 24, 100, 5))
+}
+
+fun processList(inputList: List<Any?>?): ArrayList<ItemData>? {
+	
+    var newList: ArrayList<ItemData> = arrayListOf(ItemData(0,89,"Entero", "-"))
+    newList.removeAt(0)
+    var counter = 0
+    for (item: Any? in inputList.orEmpty()){
+         
+        //Dependiendo de que tipo de valor sea
+        if (item is Int){
+            if (item % 10 == 0){
+                var value = ItemData(counter, item,"entero", "M10")
+                newList.add(value)
+            }
+            else if (item % 5 == 0){
+                var value = ItemData(counter, item,"entero", "M5")
+                newList.add(value)
+            }
+            else if (item % 2 == 0){
+                var value = ItemData(counter, item,"entero", "M2")
+                newList.add(value)
+            }
+            else {
+                var value = ItemData(counter, item,"entero", "-")
+                newList.add(value)
+            }
+            
+        }
+        else if (item is String){
+            var valCad = "L"+item.length
+            var value = ItemData(counter, item, "cadena", valCad )
+            newList.add(value)
+            
+        }
+        else if (item == true){
+            var value = ItemData(counter, item, "booleano", "verdadero" )
+            newList.add(value)
+        }
+        else if (item == false){
+            var value = ItemData(counter, item, "booleano", "falso" )
+            newList.add(value)
+        }
+        else if (item == null){
+            
+        }
+        else {
+            var value = ItemData(counter, item, "desconocido", "desconocido" )
+            newList.add(value)
+        }
+        //var value = ItemData(counter, item, )
+        counter++
+    }
+    
+    return newList
+}
+fun forFun(inputList: List<Any?>?){
+    var newList: ArrayList<ItemData> = arrayListOf(ItemData(0,89,"Entero", "-"))
+    newList.removeAt(0)
+    var counter = 0
+    for (item: Any? in inputList.orEmpty()){
+        println(item) 
+        //Dependiendo de que tipo de valor sea
+        if (item is Int){
+            if (item % 10 == 0){
+                var value = ItemData(counter, item,"entero", "M10")
+                newList.add(value)
+            }
+            else if (item % 5 == 0){
+                var value = ItemData(counter, item,"entero", "M5")
+                newList.add(value)
+            }
+            else if (item % 2 == 0){
+                var value = ItemData(counter, item,"entero", "M2")
+                newList.add(value)
+            }
+            else {
+                var value = ItemData(counter, item,"entero", "-")
+                newList.add(value)
+            }
+            
+        }
+        else if (item is String){
+            var valCad = "L"+item.length
+            var value = ItemData(counter, item, "cadena", valCad )
+            newList.add(value)
+            println(valCad)
+        }
+        else if (item == true){
+            var value = ItemData(counter, item, "booleano", "verdadero" )
+            newList.add(value)
+        }
+        else if (item == false){
+            var value = ItemData(counter, item, "booleano", "falso" )
+            newList.add(value)
+        }
+        else if (item == null){
+            
+        }
+        else {
+            var value = ItemData(counter, item, "desconocido", "desconocido" )
+            newList.add(value)
+        }
+        //var value = ItemData(counter, item, )
+        counter++
+    }
+    println (newList)
+    
+}
+
+
+/**
+ * Cómo verificar el tipo de objeto?
+ * when (myAnyTypeElement) {
+ * 	is String -> TODO()
+ *  is Int -> TODO()
+ *  is Boolean -> TODO()
+ * 	else -> TODO()
+ * }
+ */
+ 
+ /**
+  * Cómo declarar una función en una variable?
+  * val myFuncVar = { x: Any -> TODO() }
+  */
+  
+ /**
+  * Cómo crear un objeto de nuestra clase?
+  * val newItem = ItemData(
+  * 	originalPos = 0,
+  * 	originalValue = "hola"
+  * 	type = "cadena"
+  * 	info = "L4"
+  * )
+  */
+/**
+*Fue un ejemplo exitoso
+*Pos=0 val=1 type=entero info=-
+*Pos=1 val=hola type=cadena info=L4
+*Pos=4 val=1.5 type=desconocido info=desconocido
+*Pos=5 val=fhdsakj122u8492rnfj type=cadena info=L20
+*Pos=6 val=24 type=entero info=M2
+*Pos=7 val=100 type=entero info=M10
+*Pos=8 val=5 type=entero info=M5
+*https://pl.kotl.in/LxjBlBv0D
+*/
