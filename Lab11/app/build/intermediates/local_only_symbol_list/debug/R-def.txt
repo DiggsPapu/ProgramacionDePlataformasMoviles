@@ -17,6 +17,7 @@ dimen margin_login
 dimen margin_medium_charcterfragmentiv
 dimen recyclerview_size
 dimen tv_VMargin
+drawable ic_baseline_delete_24
 drawable ic_baseline_error_24
 drawable ic_baseline_more_vert_24
 drawable ic_baseline_replay_24
@@ -54,12 +55,14 @@ id nav_graph
 id origintxtv_detailsFragment
 id password_input_login
 id password_inputlayout_login
+id remove
 id rnm_iv_login
 id save_btn_detailsFragment
 id sortAz
 id sortZa
 id speciestxtv_detailsFragment
 id statustxtv_detailsFragment
+id sync
 id sync_iv_charactersF
 id toolbar_Characters1Fragment
 id toolbar_CharactersFragment
