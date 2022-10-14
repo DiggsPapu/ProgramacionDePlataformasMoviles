@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toolbar
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -134,10 +135,27 @@ class CharacterDetailsFragment: Fragment(R.layout.characterdetails_fragment) {
                     }
                     true
                 }
+                R.id.remove->{
+                    val builder = AlertDialog.Builder(requireContext())
+                    builder.apply {
+                        setTitle("Warning")
+                        setMessage("If you proceed all the data will be deleted, are you sure?")
+                            .setPositiveButton("delete", { _, _ ->
+                        CoroutineScope(Dispatchers.IO).launch {
+                            val rowsDeleted = database.caracterDao().deleteCharacter(caracter)
+                            CoroutineScope(Dispatchers.Main).launch {
+                                requireActivity().onBackPressed()
+                            }
+                        }
+                    }
+                            ).show()
+                        setNegativeButton("cancel",{_, _ -> }).show()
 
-                else -> true
+                    }
+                    true
             }
+                else->false
+                }
         }
     }
 }
-
