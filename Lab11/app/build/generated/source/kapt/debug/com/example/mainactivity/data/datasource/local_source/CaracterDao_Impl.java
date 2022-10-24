@@ -14,6 +14,7 @@ import androidx.sqlite.db.SupportSQLiteStatement;
 import com.example.mainactivity.classes.Caracter;
 import java.lang.Class;
 import java.lang.Exception;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -154,15 +155,16 @@ public final class CaracterDao_Impl implements CaracterDao {
 
   @Override
   public Object deleteCharacter(final Caracter caracter,
-      final Continuation<? super Unit> continuation) {
-    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      final Continuation<? super Integer> continuation) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Integer>() {
       @Override
-      public Unit call() throws Exception {
+      public Integer call() throws Exception {
+        int _total = 0;
         __db.beginTransaction();
         try {
-          __deletionAdapterOfCaracter.handle(caracter);
+          _total +=__deletionAdapterOfCaracter.handle(caracter);
           __db.setTransactionSuccessful();
-          return Unit.INSTANCE;
+          return _total;
         } finally {
           __db.endTransaction();
         }

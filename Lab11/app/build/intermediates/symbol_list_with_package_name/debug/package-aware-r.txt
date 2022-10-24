@@ -2145,7 +2145,9 @@ dimen margin1
 dimen margin2
 dimen margin3
 dimen margin_login
+dimen margin_medium
 dimen margin_medium_charcterfragmentiv
+dimen margin_small
 dimen material_bottom_sheet_max_width
 dimen material_clock_display_padding
 dimen material_clock_face_margin_top
@@ -2776,7 +2778,6 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
-id episodeapptxtv_detailsFragment
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -2798,7 +2799,6 @@ id fragment_CharacterDetail
 id fragment_container_view_tag
 id frost
 id fullscreen_header
-id gendertxtv_detailsFragment
 id ghost_view
 id ghost_view_holder
 id gone
@@ -2823,6 +2823,11 @@ id image
 id immediateStop
 id included
 id info
+id inputLayout_characterDetails_episodes
+id inputLayout_characterDetails_gender
+id inputLayout_characterDetails_name
+id inputLayout_characterDetails_species
+id inputLayout_characterDetails_status
 id invisible
 id inward
 id italic
@@ -2906,7 +2911,6 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id name_char_charactersFragment
-id nametxtv_detailsFragment
 id nav_controller_view_tag
 id nav_graph
 id nav_host_fragment_container
@@ -2931,7 +2935,6 @@ id notification_main_column_container
 id off
 id on
 id onInterceptTouchReturnSwipe
-id origintxtv_detailsFragment
 id outline
 id outward
 id overshoot
@@ -3011,7 +3014,6 @@ id sortZa
 id south
 id spacer
 id special_effects_controller_view_tag
-id speciestxtv_detailsFragment
 id spline
 id split_action_bar
 id spread
@@ -3028,7 +3030,6 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
-id statustxtv_detailsFragment
 id stop
 id stretch
 id submenuarrow
@@ -3350,6 +3351,8 @@ string characteristics_character
 string chip_text
 string clear_text_end_icon_content_description
 string email
+string episodes
+string error_character_not_found
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
@@ -3432,6 +3435,7 @@ string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
 string mtrl_timepicker_confirm
+string name
 string name_char
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
@@ -3450,6 +3454,8 @@ string sort_from_z_a
 string species
 string status
 string status_bar_notification_info_overflow
+string successful_delete
+string successful_update
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow

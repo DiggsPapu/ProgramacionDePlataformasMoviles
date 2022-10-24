@@ -24,6 +24,10 @@
         "source": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-main-54:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-merged_res-52:\\drawable_ic_baseline_delete_24.xml.flat",
+        "source": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-main-54:\\drawable\\ic_baseline_delete_24.xml"
+    },
+    {
         "merged": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-merged_res-52:\\drawable_rickmorty.jpg.flat",
         "source": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-main-54:\\drawable\\rickmorty.jpg"
     },
@@ -42,6 +46,10 @@
     {
         "merged": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-merged_res-52:\\menu_topappbarmenu.xml.flat",
         "source": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-main-54:\\menu\\topappbarmenu.xml"
+    },
+    {
+        "merged": "com.example.mainactivity.app-merged_res-52:/layout_characterdetails_fragment.xml.flat",
+        "source": "com.example.mainactivity.app-main-54:/layout/characterdetails_fragment.xml"
     },
     {
         "merged": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-merged_res-52:\\layout_itemrecycler_charactersfragment.xml.flat",
@@ -66,10 +74,6 @@
     {
         "merged": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-merged_res-52:\\layout_characters_fragment.xml.flat",
         "source": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-main-54:\\layout\\characters_fragment.xml"
-    },
-    {
-        "merged": "com.example.mainactivity.app-merged_res-52:/drawable_ic_baseline_delete_24.xml.flat",
-        "source": "com.example.mainactivity.app-main-54:/drawable/ic_baseline_delete_24.xml"
     },
     {
         "merged": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-merged_res-52:\\mipmap-hdpi_ic_launcher.webp.flat",
@@ -118,9 +122,5 @@
     {
         "merged": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-merged_res-52:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\salon\\.gradle\\daemon\\7.3.3\\com.example.mainactivity.app-main-54:\\mipmap-anydpi-v26\\ic_launcher.xml"
-    },
-    {
-        "merged": "com.example.mainactivity.app-merged_res-52:/menu_topappbarmenucharactersfragment.xml.flat",
-        "source": "com.example.mainactivity.app-main-54:/menu/topappbarmenucharactersfragment.xml"
     }
 ]

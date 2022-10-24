@@ -5,7 +5,7 @@ import com.example.mainactivity.classes.Caracter
 @Dao
 interface CaracterDao {
     @Delete
-    suspend fun deleteCharacter(caracter: Caracter)
+    suspend fun deleteCharacter(caracter: Caracter):Int
     @Insert
     suspend fun insertCharacter(caracter: Caracter)
     @Update

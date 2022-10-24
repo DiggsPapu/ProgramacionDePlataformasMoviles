@@ -20,4 +20,9 @@
     <string name="TitleFragmentLogIn">Log In</string>
     <string name="logout">Log out</string>
     <string name="save">save</string>
+    <string name="error_character_not_found">The character couldn\'t be found</string>
+    <string name="successful_delete">The character was deleted from the database</string>
+    <string name="successful_update">The character was succesfully updated</string>
+    <string name="name">Name</string>
+    <string name="episodes">Apperances</string>
 </resources>

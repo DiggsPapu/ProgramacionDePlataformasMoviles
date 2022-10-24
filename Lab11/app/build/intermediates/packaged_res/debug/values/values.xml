@@ -14,7 +14,9 @@
     <dimen name="margin2">20dp</dimen>
     <dimen name="margin3">20dp</dimen>
     <dimen name="margin_login">20dp</dimen>
+    <dimen name="margin_medium">15dp</dimen>
     <dimen name="margin_medium_charcterfragmentiv">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
     <dimen name="recyclerview_size">70dp</dimen>
     <dimen name="tv_VMargin">20dp</dimen>
     <string name="CharacterDetails_Title">Character Details</string>
@@ -25,9 +27,12 @@
     <string name="character_title">Characters</string>
     <string name="characteristics_character">characteristics</string>
     <string name="email">email</string>
+    <string name="episodes">Apperances</string>
+    <string name="error_character_not_found">The character couldn\'t be found</string>
     <string name="gender">Gender</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logout">Log out</string>
+    <string name="name">Name</string>
     <string name="name_char">name</string>
     <string name="options">Options</string>
     <string name="origin">origin</string>
@@ -37,6 +42,8 @@
     <string name="sort_from_z_a">Sort from Z-A</string>
     <string name="species">Species</string>
     <string name="status">Status</string>
+    <string name="successful_delete">The character was deleted from the database</string>
+    <string name="successful_update">The character was succesfully updated</string>
     <style name="Theme.MainActivity" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
         <item name="colorPrimary">@color/purple_500</item>
