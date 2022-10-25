@@ -65,7 +65,7 @@
         android:id="@+id/btn_homeF_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/default1"
+        android:text="@string/empty"
         app:layout_constraintTop_toBottomOf="@+id/btn_homeF_success"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

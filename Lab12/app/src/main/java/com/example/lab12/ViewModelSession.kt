@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-private const val TOKEN_DURATION = 5000L
-private const val LOGIN_TIME = 3000L
+private const val TOKEN_DURATION = 3000L
+private const val LOGIN_TIME = 2000L
 
 class ViewModelSession : ViewModel(){
     sealed interface LoginState {

@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-private const val STATE_LOADING_TIME = 2000L
+private const val STATE_LOADING_TIME = 1000L
 class ViewModelH : ViewModel(){
     sealed class HomeViewState {
         object Default: HomeViewState()

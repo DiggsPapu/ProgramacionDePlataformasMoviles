@@ -35,7 +35,8 @@ class HomeF : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setObservables()
+        setListeners()
     }
     private fun setListeners() {
         binding.apply {
