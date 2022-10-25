@@ -3,9 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/salon/OneDrive/Documentos/Diego/PPM/Lab/Lab12/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/salon/OneDrive/Documentos/Diego/PPM/Lab/Lab12/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/Users/salon/OneDrive/Documentos/Diego/PPM/Lab/Lab12/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/Users/salon/OneDrive/Documentos/Diego/PPM/Lab/Lab12/app/src/main/res/layout/activity_login_fragmen.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/salon/OneDrive/Documentos/Diego/PPM/Lab/Lab12/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/salon/OneDrive/Documentos/Diego/PPM/Lab/Lab12/app/src/main/res/layout/homefragment.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>

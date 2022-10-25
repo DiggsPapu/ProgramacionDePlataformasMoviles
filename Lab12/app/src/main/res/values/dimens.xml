@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="fragment_horizontal_margin">16dp</dimen>
-    <dimen name="fragment_vertical_margin">16dp</dimen>
-    <dimen name="margin_xl">50</dimen>
-    <dimen name="margin_medium">14</dimen>
-    <dimen name="margin_large">30</dimen>
+    <dimen name="titleval">30sp</dimen>
+    <dimen name="topMargin">100dp</dimen>
+    <dimen name="margintxtenter">30dp</dimen>
+    <dimen name="margin_fragment">9dp</dimen>
 </resources>
