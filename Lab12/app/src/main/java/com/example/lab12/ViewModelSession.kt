@@ -31,10 +31,10 @@ class ViewModelSession : ViewModel(){
         viewModelScope.launch {
             statusLogin.value = LoginState.Loading
             delay(LOGIN_TIME)
-            if (email == "jcdurini@uvg.edu.gt" && email == password) {
+            if (email == "alo20172@uvg.edu.gt" && email == password) {
                 statusLogin.value = LoginState.Success
             } else {
-                statusLogin.value = LoginState.Error("Credenciales incorrectas")
+                statusLogin.value = LoginState.Error("Invalid data entered.")
             }
 
             statusLogin.value = LoginState.Default

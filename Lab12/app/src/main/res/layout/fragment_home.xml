@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.HomeF">
+
+    <Button
+        android:id="@+id/btn_homeF_keepsession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/keep_session"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+    </Button>
+    <Button
+        android:id="@+id/btn_homeF_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_out"
+        app:layout_constraintTop_toBottomOf="@+id/btn_homeF_keepsession"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+    </Button>
+    <Button
+        android:id="@+id/btn_homeF_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/default1"
+        app:layout_constraintTop_toBottomOf="@+id/btn_homeF_logout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+    </Button>
+    <Button
+        android:id="@+id/btn_homeF_success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/success"
+        app:layout_constraintTop_toBottomOf="@+id/btn_homeF_default"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+    </Button>
+    <Button
+        android:id="@+id/btn_homeF_fail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/failure"
+        app:layout_constraintTop_toBottomOf="@+id/btn_homeF_success"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+    </Button>
+    <Button
+        android:id="@+id/btn_homeF_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/default1"
+        app:layout_constraintTop_toBottomOf="@+id/btn_homeF_success"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+    </Button>
+    <ImageView
+        android:id="@+id/iv_homeF_Final"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_homeF_empty"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+    </ImageView>
+    <TextView
+        android:id="@+id/txtv_homeF_descr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_homeF_Final"
+        >
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

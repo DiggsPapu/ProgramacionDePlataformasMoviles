@@ -106,6 +106,7 @@ class CharactersFragment: Fragment(R.layout.characters_fragment), CaracterAdapte
             }
 
         })
+
         }
 
 //    override fun onPlaceClicked(data: Result, position: Int) {

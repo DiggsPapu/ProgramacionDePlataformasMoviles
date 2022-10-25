@@ -12,13 +12,33 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31e7922d-c6cd-4cb1-b5e3-cfa51b2fd25f" name="Changes" comment="" />
+    <list default="true" id="31e7922d-c6cd-4cb1-b5e3-cfa51b2fd25f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Lab12/app/src/main/java/com/example/lab12/home/HomeF.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab12/app/src/main/java/com/example/lab12/login/LoginF.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab12/app/src/main/java/com/example/lab12/util/Functions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab12/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab12/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab12/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mainactivity/fragments/CharactersFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mainactivity/fragments/CharactersFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab12/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab12/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12/app/src/main/java/com/example/lab12/ViewModelSession.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab12/app/src/main/java/com/example/lab12/ViewModelSession.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12/app/src/main/java/com/example/lab12/home/homeFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12/app/src/main/java/com/example/lab12/login/loginFragmen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12/app/src/main/res/layout/activity_login_fragmen.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab12/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12/app/src/main/res/layout/homefragment.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12/app/src/main/res/navigation/navigationgraph.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab12/app/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[5203dc57fe1d9475]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\salon\.android\avd\Pixel_2_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -67,7 +87,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab12" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
